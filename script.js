@@ -1,14 +1,18 @@
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+        const href = this.getAttribute('href');
+        // Only handle navigation links, not empty anchors
+        if (href && href.length > 1) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                const offsetTop = target.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         }
     });
 });
@@ -57,4 +61,33 @@ modal.addEventListener('click', (e) => {
     if (e.target === modal) {
         modal.classList.remove('active');
     }
+});
+
+// Prevent scroll jump on form input focus
+const htmlElement = document.documentElement;
+document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(input => {
+    input.addEventListener('focus', function() {
+        // Temporarily disable smooth scrolling
+        htmlElement.style.scrollBehavior = 'auto';
+        setTimeout(() => {
+            htmlElement.style.scrollBehavior = 'smooth';
+        }, 50);
+    });
+});
+
+// Mobile hamburger menu
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
 });

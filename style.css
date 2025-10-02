@@ -86,6 +86,15 @@ html {
     margin-top: 0;
 }
 
+/* Mobile fix for hero background */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
 .hero-overlay {
     background: rgba(0, 0, 0, 0.5);
     width: 100%;

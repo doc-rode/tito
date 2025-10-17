@@ -65,13 +65,21 @@ modal.addEventListener('click', (e) => {
 
 // Prevent scroll jump on form input focus
 const htmlElement = document.documentElement;
+let scrollPosition = 0;
+
 document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(input => {
     input.addEventListener('focus', function() {
+        // Save current scroll position
+        scrollPosition = window.pageYOffset;
+
         // Temporarily disable smooth scrolling
         htmlElement.style.scrollBehavior = 'auto';
+
+        // Restore scroll position after a brief delay
         setTimeout(() => {
+            window.scrollTo(0, scrollPosition);
             htmlElement.style.scrollBehavior = 'smooth';
-        }, 50);
+        }, 10);
     });
 });
 

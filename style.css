@@ -103,10 +103,11 @@ html {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('media/image/t-shirt-logo-bw.jpg');
+    background-image: url('media/image/tito_oasis_banner.gif');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,12 +115,30 @@ html {
     margin-top: 0;
 }
 
-/* Mobile fix for hero background */
+/* Tablet optimization */
+@media (max-width: 1024px) {
+    .hero {
+        background-attachment: scroll;
+        background-position: center 40%;
+    }
+}
+
+/* Mobile optimization */
 @media (max-width: 768px) {
     .hero {
         background-attachment: scroll;
         background-size: cover;
-        background-position: center center;
+        background-position: center 35%;
+        min-height: 100vh;
+        height: auto;
+    }
+}
+
+/* Small mobile optimization */
+@media (max-width: 480px) {
+    .hero {
+        background-position: 60% center;
+        min-height: 100vh;
     }
 }
 
@@ -226,6 +245,48 @@ html {
     object-fit: cover;
 }
 
+/* Video Wrapper for responsive embeds */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+}
+
+/* Media Section Grid Layout */
+#media .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+#media .card:first-child {
+    grid-column: 1 / -1; /* Span all columns */
+}
+
+/* Mobile: stack all cards */
+@media (max-width: 768px) {
+    #media .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #media .card:first-child {
+        grid-column: 1;
+    }
+}
+
 #comics .card {
     position: relative;
 }
@@ -325,14 +386,41 @@ html {
     z-index: 0;
 }
 
-.video-bg-section .container {
+/* Dates Section Styles */
+#dates {
+    background-image: url('media/image/albert_grabs_air.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#dates::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(102, 126, 234, 0.85);
+    z-index: 0;
+}
+
+#dates .container {
     position: relative;
     z-index: 1;
 }
 
-.video-bg-section h2 {
+#dates h2 {
     color: white;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile: disable parallax */
+@media (max-width: 768px) {
+    #dates {
+        background-attachment: scroll;
+    }
 }
 
 .dates-list {
@@ -341,6 +429,25 @@ html {
     gap: 1.5rem;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.show-flyer-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.show-flyer-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.show-flyer {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .date-card {
@@ -536,7 +643,8 @@ html {
 }
 
 #comics h2,
-#media h2 {
+#media h2,
+#band h2 {
     color: #000 !important;
 }
 

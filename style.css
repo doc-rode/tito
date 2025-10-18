@@ -103,7 +103,7 @@ html {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('media/image/tito_oasis_banner.gif');
+    background-image: url('media/image/tito_bw_banner.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;

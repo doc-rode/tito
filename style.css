@@ -130,7 +130,7 @@ html {
         background-attachment: scroll;
         background-size: cover;
         background-position: 42% center;
-        min-height: 75vh;
+        min-height: 100vh;
         height: auto;
     }
 }
@@ -139,7 +139,7 @@ html {
 @media (max-width: 480px) {
     .hero {
         background-position: 42% center;
-        min-height: 70vh;
+        min-height: 100vh;
     }
 }
 
@@ -149,9 +149,10 @@ html {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+    padding: 5rem;
 }
 
 .hero h1 {
@@ -169,6 +170,18 @@ html {
     font-weight: 300;
     letter-spacing: 2px;
     text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Mobile: hide overlay and text */
+@media (max-width: 768px) {
+    .hero-overlay {
+        background: transparent;
+    }
+    
+    .hero h1,
+    .hero .tagline {
+        display: none;
+    }
 }
 
 /* Sections */

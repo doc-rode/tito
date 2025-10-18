@@ -140,7 +140,7 @@ html {
 @media (max-width: 480px) {
     .hero {
         background-position: 35% center;
-        min-height: 90vh;
+        min-height: 85vh;
     }
 }
 

@@ -102,17 +102,18 @@ html {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
     background-image: url('media/image/JPEG/tito_bw_banner.jpg');
     background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    background-position: 35% center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     position: relative;
-    margin-top: 0;
+    color: white;
 }
 
 /* Tablet optimization */
@@ -129,7 +130,7 @@ html {
     .hero {
         background-attachment: scroll;
         background-size: cover;
-        background-position: 42% center;
+        background-position: 35% center;
         min-height: 90vh;
         height: auto;
     }
@@ -138,7 +139,7 @@ html {
 /* Small mobile optimization */
 @media (max-width: 480px) {
     .hero {
-        background-position: 42% center;
+        background-position: 35% center;
         min-height: 90vh;
     }
 }

@@ -128,7 +128,7 @@ html {
     .hero {
         background-attachment: scroll;
         background-size: cover;
-        background-position: center 35%;
+        background-position: left 35%;
         min-height: 100vh;
         height: auto;
     }
@@ -137,7 +137,7 @@ html {
 /* Small mobile optimization */
 @media (max-width: 480px) {
     .hero {
-        background-position: 60% center;
+        background-position: 60% left;
         min-height: 100vh;
     }
 }

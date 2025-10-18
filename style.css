@@ -103,7 +103,7 @@ html {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: url('media/image/tito_bw_banner.png');
+    background-image: url('media/image/JPEG/tito_bw_banner.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -222,7 +222,7 @@ html {
 /* Card Grid */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
 }
 
@@ -288,6 +288,13 @@ html {
     }
 }
 
+/* Comics Section Grid Layout */
+#comics .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
 #comics .card {
     position: relative;
 }
@@ -295,6 +302,20 @@ html {
 #comics img.card-image {
     aspect-ratio: 1 / 1;
     height: auto;
+}
+
+/* Mobile: 2 columns for comics */
+@media (max-width: 768px) {
+    #comics .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small mobile: 1 column for comics */
+@media (max-width: 480px) {
+    #comics .card-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .clickable-image {
